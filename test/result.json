@@ -1,0 +1,62 @@
+{
+  "submissionDate": "11/20/2019 06:21 AM",
+  "validationResults": [
+      {
+          "filename": "VUT-TEST-OASIS-BAD-2.xml",
+          "validationErrors": [
+              {
+                  "results": {
+                      "message_number": 1,
+                      "error_id": "-3110",
+                      "severity": "Fatal",
+                      "text": "FORMATTING OF NUMERIC TEXT ITEMS\nIf this item is not equal to one of the special values (if any) that are listed in the Item Values table of the Detailed Data Specifications Report, then it must contain a text string. This text string may contain only numeric characters: [0] through [9].",
+                      "item": "M0064_SSN",
+                      "item_value": "154-87-5926"
+                  }
+              },
+              {
+                  "results": {
+                      "message_number": 2,
+                      "error_id": "-3010",
+                      "severity": "Fatal",
+                      "text": "If this item is not equal to one of the special values (if any) that are listed in the Item Values table of the Detailed Data Specifications Report, then the length of the submitted value must match exactly the maximum length that is listed for the item.",
+                      "item": "M0064_SSN",
+                      "item_value": "154-87-5926"
+                  }
+              },
+              {
+                  "results": {
+                      "message_number": 3,
+                      "error_id": "-3080",
+                      "severity": "Fatal",
+                      "text": "FORMATTING OF BIRTHDATE\nThis item must contain either (a) a valid date in YYYYMMDD, YYYYMM, or YYYY format, or (b) one of the special values (if any) that are listed in the \"Item Values\" table of the Detailed Data Specifications Report.\n\nNote that if a date in YYYYMMDD format is submitted, it must be 8 characters in length and each of the 8 characters must contain the digits 0 (zero) through 9. YYYY, MM, and DD must be zero filled, where necessary. For example, January 1, 1909 must be submitted as \"19090101\".\n\nIf a date is submitted in YYYYMM format, it must be 6 characters in length and each of the 6 characters must contain the digits 0 (zero) through 9. YYYY and MM must be zero filled, where necessary. For example, January, 1909 must be submitted as \"190901\".\n\nIf a date is submitted in YYYY format, it must be 4 characters in length and each of the 4 characters must contain the digits 0 (zero) through 9. YYYY must be zero filled, where necessary. For example, 1909 must be submitted as \"1909\".",
+                      "item": "M0066_PAT_BIRTH_DT",
+                      "item_value": "19500805x"
+                  }
+              },
+              {
+                  "results": {
+                      "message_number": 4,
+                      "error_id": "-3060",
+                      "severity": "Fatal",
+                      "text": "VALUES OF CODE AND CHECKLIST ITEMS\nOnly the coded values listed in the \"Item Values\" table of the Detailed Data Specifications Report may be submitted for this item.",
+                      "item": "M0069_PAT_GENDER",
+                      "item_value": "9"
+                  }
+              }
+          ],
+          "jsonPayload": {
+              "ssn": "154-87-5926",
+              "firstName": "Mike",
+              "lastName": "Magoo",
+              "facilityName": "TestAgency",
+              "stateCode": "CT",
+              "targetDate": "20190808",
+              "reasonType": "01",
+              "medicareId": "234333344",
+              "transactionTypeCode": "1",
+              "systemCode": "OASIS"
+          }
+      }
+  ]
+}

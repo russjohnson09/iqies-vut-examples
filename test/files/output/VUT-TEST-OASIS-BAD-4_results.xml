@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validation_results>
+  <results>
+    <message_number>1</message_number>
+    <error_id>-3261</error_id>
+    <severity>Fatal</severity>
+    <text>DATE ITEM CONSISTENCY: PATTERN 1
+Each active item in the list below that contains a valid date (not blank) must be in the specified order.
+If M0032_ROC_DT is equal to [^], then the following rules apply:
+M0066_PAT_BIRTH_DT <
+M1005_INP_DISCHARGE_DT <=
+M0102_PHYSN_ORDRD_SOCROC_DT <=
+M0030_START_CARE_DT <=
+M1307_OLDST_STG2_ONST_DT <=
+M0906_DC_TRAN_DTH_DT <=
+M0090_INFO_COMPLETED_DT <=
+Current date
+    </text>
+    <item>M0030_START_CARE_DT</item>
+    <item_value>20200808</item_value>
+  </results>
+  <results>
+    <message_number>2</message_number>
+    <error_id>-3300</error_id>
+    <severity>Warning</severity>
+    <text>If M0100_ASSMT_REASON=[01] and if M0090_INFO_COMPLETED_DT and M0030_START_CARE_DT are both active and contain valid dates (not [^]), then M0090_INFO_COMPLETED_DT minus M0030_START_CARE_DT should be greater than or equal to zero and less than or equal to 5.</text>
+    <item>M0030_START_CARE_DT</item>
+    <item_value>20200808</item_value>
+  </results>
+  <results>
+    <message_number>3</message_number>
+    <error_id>-3280</error_id>
+    <severity>Warning</severity>
+    <text>If M0100_ASSMT_REASON=[01] and if M0030_START_CARE_DT and M1005_INP_DISCHARGE_DT are both active and contain valid dates (not [^]), then M0030_START_CARE_DT minus M1005_INP_DISCHARGE_DT should be greater than or equal to zero and less than or equal to 14 days.</text>
+    <item>M0030_START_CARE_DT</item>
+    <item_value>20200808</item_value>
+  </results>
+  <results>
+    <message_number>4</message_number>
+    <error_id>-3261</error_id>
+    <severity>Fatal</severity>
+    <text>DATE ITEM CONSISTENCY: PATTERN 1
+Each active item in the list below that contains a valid date (not blank) must be in the specified order.
+If M0032_ROC_DT is equal to [^], then the following rules apply:
+M0066_PAT_BIRTH_DT <
+M1005_INP_DISCHARGE_DT <=
+M0102_PHYSN_ORDRD_SOCROC_DT <=
+M0030_START_CARE_DT <=
+M1307_OLDST_STG2_ONST_DT <=
+M0906_DC_TRAN_DTH_DT <=
+M0090_INFO_COMPLETED_DT <=
+Current date
+    </text>
+    <item>M0032_ROC_DT</item>
+    <item_value>^</item_value>
+  </results>
+  <results>
+    <message_number>5</message_number>
+    <error_id>-3110</error_id>
+    <severity>Fatal</severity>
+    <text>FORMATTING OF NUMERIC TEXT ITEMS
+If this item is not equal to one of the special values (if any) that are listed in the Item Values table of the Detailed Data Specifications Report, then it must contain a text string. This text string may contain only numeric characters: [0] through [9].</text>
+    <item>M0064_SSN</item>
+    <item_value>154-87-5926</item_value>
+  </results>
+  <results>
+    <message_number>6</message_number>
+    <error_id>-3010</error_id>
+    <severity>Fatal</severity>
+    <text>If this item is not equal to one of the special values (if any) that are listed in the Item Values table of the Detailed Data Specifications Report, then the length of the submitted value must match exactly the maximum length that is listed for the item.</text>
+    <item>M0064_SSN</item>
+    <item_value>154-87-5926</item_value>
+  </results>
+  <results>
+    <message_number>7</message_number>
+    <error_id>-3261</error_id>
+    <severity>Fatal</severity>
+    <text>DATE ITEM CONSISTENCY: PATTERN 1
+Each active item in the list below that contains a valid date (not blank) must be in the specified order.
+If M0032_ROC_DT is equal to [^], then the following rules apply:
+M0066_PAT_BIRTH_DT <
+M1005_INP_DISCHARGE_DT <=
+M0102_PHYSN_ORDRD_SOCROC_DT <=
+M0030_START_CARE_DT <=
+M1307_OLDST_STG2_ONST_DT <=
+M0906_DC_TRAN_DTH_DT <=
+M0090_INFO_COMPLETED_DT <=
+Current date
+    </text>
+    <item>M0066_PAT_BIRTH_DT</item>
+    <item_value>19500805x</item_value>
+  </results>
+  <results>
+    <message_number>8</message_number>
+    <error_id>-3080</error_id>
+    <severity>Fatal</severity>
+    <text>FORMATTING OF BIRTHDATE
+This item must contain either (a) a valid date in YYYYMMDD, YYYYMM, or YYYY format, or (b) one of the special values (if any) that are listed in the "Item Values" table of the Detailed Data Specifications Report.
+
+Note that if a date in YYYYMMDD format is submitted, it must be 8 characters in length and each of the 8 characters must contain the digits 0 (zero) through 9. YYYY, MM, and DD must be zero filled, where necessary. For example, January 1, 1909 must be submitted as "19090101".
+
+If a date is submitted in YYYYMM format, it must be 6 characters in length and each of the 6 characters must contain the digits 0 (zero) through 9. YYYY and MM must be zero filled, where necessary. For example, January, 1909 must be submitted as "190901".
+
+If a date is submitted in YYYY format, it must be 4 characters in length and each of the 4 characters must contain the digits 0 (zero) through 9. YYYY must be zero filled, where necessary. For example, 1909 must be submitted as "1909".</text>
+    <item>M0066_PAT_BIRTH_DT</item>
+    <item_value>19500805x</item_value>
+  </results>
+  <results>
+    <message_number>9</message_number>
+    <error_id>-3060</error_id>
+    <severity>Fatal</severity>
+    <text>VALUES OF CODE AND CHECKLIST ITEMS
+Only the coded values listed in the "Item Values" table of the Detailed Data Specifications Report may be submitted for this item.</text>
+    <item>M0069_PAT_GENDER</item>
+    <item_value>9</item_value>
+  </results>
+  <results>
+    <message_number>10</message_number>
+    <error_id>-3261</error_id>
+    <severity>Fatal</severity>
+    <text>DATE ITEM CONSISTENCY: PATTERN 1
+Each active item in the list below that contains a valid date (not blank) must be in the specified order.
+If M0032_ROC_DT is equal to [^], then the following rules apply:
+M0066_PAT_BIRTH_DT <
+M1005_INP_DISCHARGE_DT <=
+M0102_PHYSN_ORDRD_SOCROC_DT <=
+M0030_START_CARE_DT <=
+M1307_OLDST_STG2_ONST_DT <=
+M0906_DC_TRAN_DTH_DT <=
+M0090_INFO_COMPLETED_DT <=
+Current date
+    </text>
+    <item>M0090_INFO_COMPLETED_DT</item>
+    <item_value>20190808</item_value>
+  </results>
+  <results>
+    <message_number>11</message_number>
+    <error_id>-3300</error_id>
+    <severity>Warning</severity>
+    <text>If M0100_ASSMT_REASON=[01] and if M0090_INFO_COMPLETED_DT and M0030_START_CARE_DT are both active and contain valid dates (not [^]), then M0090_INFO_COMPLETED_DT minus M0030_START_CARE_DT should be greater than or equal to zero and less than or equal to 5.</text>
+    <item>M0090_INFO_COMPLETED_DT</item>
+    <item_value>20190808</item_value>
+  </results>
+  <results>
+    <message_number>12</message_number>
+    <error_id>-3300</error_id>
+    <severity>Warning</severity>
+    <text>If M0100_ASSMT_REASON=[01] and if M0090_INFO_COMPLETED_DT and M0030_START_CARE_DT are both active and contain valid dates (not [^]), then M0090_INFO_COMPLETED_DT minus M0030_START_CARE_DT should be greater than or equal to zero and less than or equal to 5.</text>
+    <item>M0100_ASSMT_REASON</item>
+    <item_value>01</item_value>
+  </results>
+  <results>
+    <message_number>13</message_number>
+    <error_id>-3280</error_id>
+    <severity>Warning</severity>
+    <text>If M0100_ASSMT_REASON=[01] and if M0030_START_CARE_DT and M1005_INP_DISCHARGE_DT are both active and contain valid dates (not [^]), then M0030_START_CARE_DT minus M1005_INP_DISCHARGE_DT should be greater than or equal to zero and less than or equal to 14 days.</text>
+    <item>M0100_ASSMT_REASON</item>
+    <item_value>01</item_value>
+  </results>
+  <results>
+    <message_number>14</message_number>
+    <error_id>-3261</error_id>
+    <severity>Fatal</severity>
+    <text>DATE ITEM CONSISTENCY: PATTERN 1
+Each active item in the list below that contains a valid date (not blank) must be in the specified order.
+If M0032_ROC_DT is equal to [^], then the following rules apply:
+M0066_PAT_BIRTH_DT <
+M1005_INP_DISCHARGE_DT <=
+M0102_PHYSN_ORDRD_SOCROC_DT <=
+M0030_START_CARE_DT <=
+M1307_OLDST_STG2_ONST_DT <=
+M0906_DC_TRAN_DTH_DT <=
+M0090_INFO_COMPLETED_DT <=
+Current date
+    </text>
+    <item>M0102_PHYSN_ORDRD_SOCROC_DT</item>
+    <item_value>20190808</item_value>
+  </results>
+  <results>
+    <message_number>15</message_number>
+    <error_id>-3261</error_id>
+    <severity>Fatal</severity>
+    <text>DATE ITEM CONSISTENCY: PATTERN 1
+Each active item in the list below that contains a valid date (not blank) must be in the specified order.
+If M0032_ROC_DT is equal to [^], then the following rules apply:
+M0066_PAT_BIRTH_DT <
+M1005_INP_DISCHARGE_DT <=
+M0102_PHYSN_ORDRD_SOCROC_DT <=
+M0030_START_CARE_DT <=
+M1307_OLDST_STG2_ONST_DT <=
+M0906_DC_TRAN_DTH_DT <=
+M0090_INFO_COMPLETED_DT <=
+Current date
+    </text>
+    <item>M1005_INP_DISCHARGE_DT</item>
+    <item_value>20190730</item_value>
+  </results>
+  <results>
+    <message_number>16</message_number>
+    <error_id>-3280</error_id>
+    <severity>Warning</severity>
+    <text>If M0100_ASSMT_REASON=[01] and if M0030_START_CARE_DT and M1005_INP_DISCHARGE_DT are both active and contain valid dates (not [^]), then M0030_START_CARE_DT minus M1005_INP_DISCHARGE_DT should be greater than or equal to zero and less than or equal to 14 days.</text>
+    <item>M1005_INP_DISCHARGE_DT</item>
+    <item_value>20190730</item_value>
+  </results>
+</validation_results>

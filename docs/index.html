@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>iQIES VUT</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body {
+        font-family: 'Droid Serif';
+      }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+      .remark-slide-content h1 { font-size: 3em; }
+      .remark-slide-content h2 { font-size: 2em; }
+      .remark-slide-content h3 { font-size: 1.6em; }
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+      }
+      li p { line-height: 1.25em; }
+      .red { color: #fa0000; }
+      .large { font-size: 2em; }
+      a, a > code {
+        color: rgb(249, 38, 114);
+        text-decoration: none;
+      }
+      code {
+        background: #e7e8e2;
+        border-radius: 5px;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-code-line-highlighted     { background-color: #373832; }
+      .pull-left {
+        float: left;
+        width: 47%;
+      }
+      .pull-right {
+        float: right;
+        width: 47%;
+      }
+      .pull-right ~ p {
+        clear: both;
+      }
+      #slideshow .slide .content code {
+        font-size: 0.8em;
+      }
+      #slideshow .slide .content pre code {
+        font-size: 0.9em;
+        padding: 15px;
+      }
+      .inverse {
+        background: #272822;
+        color: #777872;
+        /* text-shadow: 0 0 20px #333; */
+      }
+      .inverse h1, .inverse h2 {
+        color: #f3f3f3;
+        line-height: 0.8em;
+      }
+
+      /* Slide-specific styling */
+      #slide-inverse .footnote {
+        bottom: 12px;
+        left: 20px;
+      }
+      #slide-how .slides {
+        font-size: 0.9em;
+        position: absolute;
+        top:  151px;
+        right: 140px;
+      }
+      #slide-how .slides h3 {
+        margin-top: 0.2em;
+      }
+      #slide-how .slides .first, #slide-how .slides .second {
+        padding: 1px 20px;
+        height: 90px;
+        width: 120px;
+        -moz-box-shadow: 0 0 10px #777;
+        -webkit-box-shadow: 0 0 10px #777;
+        box-shadow: 0 0 10px #777;
+      }
+      #slide-how .slides .first {
+        background: #fff;
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        z-index: 1;
+      }
+      #slide-how .slides .second {
+        position: relative;
+        background: #fff;
+        z-index: 0;
+      }
+
+      /* Two-column layout */
+      .left-column {
+        color: #777;
+        width: 20%;
+        height: 92%;
+        float: left;
+      }
+        .left-column h2:last-of-type, .left-column h3:last-child {
+          color: #000;
+        }
+      .right-column {
+        width: 75%;
+        float: right;
+        padding-top: 1em;
+      }
+      .small .remark-code {
+        font-size: .6em;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+name: inverse
+layout: true
+class: inverse
+---
+class: center, middle
+
+# iQIES VUT
+
+---
+
+# Agenda
+
+1. Overview
+2. Request
+3. Response
+4. Example Code
+5. A simple UI
+
+---
+
+# Overview
+
+## VUT UI
+<https://iqies.cms.gov/vut>  
+
+The VUT UI in iQIES will accept a single xml assessment file or a zip of files, validate them and display a report similar to the final validation report with the option to download the report in xml or csv format.
+
+## VUT Service
+<https://iqies.cms.gov/api/vut/v1/assessmentUpload>
+- The same service used by VUT UI
+- No software to download and install
+- Easy to call directly from test scripts
+- Get patches and new specs as soon as they're released
+---
+
+# Request
+```md
+POST /api/vut/v1/assessmentUpload HTTP/1.1 
+Host: iqies.cms.gov
+Content-Type: multipart/form-data;boundary="boundary" 
+
+--boundary 
+Content-Disposition: form-data; name="assessmentFile"; filename="example.xml" 
+
+...
+--boundary--
+```
+
+---
+
+# Response
+.small[
+```json
+{
+  "submissionDate": "10/24/2019 07:25 PM",
+  "validationResults": [
+      {
+          "filename": "VUT-TEST-OASIS-BAD.xml",
+          "jsonPayload": {
+              "ssn": "154-87-5926",
+              "firstName": "Mike",
+              "lastName": "Magoo",
+              "facilityName": "TestAgency",
+              "stateCode": "CT",
+              "targetDate": "20190808",
+              "reasonType": "01",
+              "medicareId": "234333344",
+              "transactionTypeCode": "1",
+              "systemCode": "OASIS"
+          },
+          "validationErrors": [
+              {
+                  "results": {
+                      "message_number": 1,
+                      "error_id": "-3110",
+                      "severity": "Fatal",
+                      "text": "FORMATTING OF NUMERIC TEXT ITEMS\nIf this item is not equal to one of the special values (if any) that are listed in the Item Values table of the Detailed Data Specifications Report, then it must contain a text string. This text string may contain only numeric characters: [0] through [9].",
+                      "item": "M0064_SSN",
+                      "item_value": "154-87-5926"
+                  }
+              },
+              {
+                  "results": {
+                      "message_number": 2,
+                      "error_id": "-3010",
+                      "severity": "Fatal",
+                      "text": "If this item is not equal to one of the special values (if any) that are listed in the Item Values table of the Detailed Data Specifications Report, then the length of the submitted value must match exactly the maximum length that is listed for the item.",
+                      "item": "M0064_SSN",
+                      "item_value": "154-87-5926"
+                  }
+              }
+          ]
+      }
+  ]
+}
+```]
+
+---
+
+# Example Code
+```javascript
+const unirest = require("unirest")
+const URL = 'https://iqies.cms.gov/api/vut/v1/assessmentUpload'
+
+unirest.post(URL)
+.headers({'Content-Type': 'multipart/form-data'})
+.attach('assessmentFile', '/path/to/oasis/assessment.xml')
+.end(function (res) {
+  if (res.error) throw new Error(res.error)
+  console.log(res.body)
+});  
+```
+
+---
+
+# A simple UI
+.small[
+```html
+<form action="https://iqies.cms.gov/api/vut/v1/assessmentUpload" method="post" enctype="multipart/form-data">
+  <p><input type="file" name="assessmentFile">
+  <p><button type="submit">Submit</button>
+</form>
+```]
+
+<form action="https://impl1-iqies.hcqis.org/api/vut/v1/assessmentUpload" method="post" enctype="multipart/form-data">
+  <p><input type="file" name="assessmentFile">
+  <p><button type="submit">Submit</button>
+</form>
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
